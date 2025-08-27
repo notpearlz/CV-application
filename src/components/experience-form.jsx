@@ -1,3 +1,6 @@
+import EditButton from './shared/submit'
+import SubmitButton from './shared/edit'
+
 function Company(){
     return (
        <div className='company'>
@@ -58,8 +61,8 @@ function CompanyDate(){
     return (
         <>
             <div>
-                <label htmlFor='companyName'>Company Name</label>
-                <input id='companyName' />
+                <label htmlFor='companyDate'>Company Date</label>
+                <input id='companyDate' />
             </div>
         </>
     )
@@ -68,7 +71,10 @@ function CompanyDate(){
 function ExperienceForm(){
     return (
         <>
-            <Company />
+            <h1>Experience</h1>
+            <div>
+                <Company />
+            </div>
         </>
     )
 }

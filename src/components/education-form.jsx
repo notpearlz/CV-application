@@ -1,3 +1,6 @@
+import EditButton from './shared/submit'
+import SubmitButton from './shared/edit'
+
 function School(){
     return (
         <div className='school'>
@@ -47,7 +50,10 @@ function SchoolDateOfStudy(){
 function EducationForm(){
     return (
         <>
-            <School />
+            <h1>Education</h1>
+            <div>
+                <School />
+            </div>
         </>
     )
 }

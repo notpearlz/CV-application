@@ -1,9 +1,9 @@
-function EditButton(){
+function SubmitButton(){
     return (
         <>
-            <button>Edit</button>
+            <button>Submit</button>
         </>
     )
 }
 
-export default EditButton
+export default SubmitButton

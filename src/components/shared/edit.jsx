@@ -1,9 +1,14 @@
-function SubmitButton(){
+
+
+
+function EditButton(){
     return (
         <>
-            <button>Submit</button>
+            <button>Edit</button>
         </>
     )
 }
 
-export default SubmitButton
+
+
+export default EditButton

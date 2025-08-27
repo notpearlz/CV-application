@@ -1,3 +1,8 @@
+import { useState } from 'react'
+
+import EditButton from './shared/edit'
+import SubmitButton from './shared/submit'
+
 function Name(){
     return (
         <div>
@@ -26,12 +31,27 @@ function Phone(){
 }
 
 function GeneralForm(){
-    return (<>
-        <Name/>
-        <Email/>
-        <Phone/>
+    const [editing, setEditing] = useState(false)
+    return (
+        <>
+            <h1>General</h1>
+            <div>
+                <Name/>
+                <Email/>
+                <Phone/>
 
-    </>)
+                {editing && (
+                    <div>
+                        <EditButton />
+                        <SubmitButton />
+                    </div>
+                )}
+               
+                
+                
+            </div>
+        </>
+    )
    
 }
 
