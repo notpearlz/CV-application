@@ -1,56 +1,50 @@
-import { useState } from 'react'
+import EditButton from "./shared/edit"
 
-import EditButton from './shared/edit'
-import SubmitButton from './shared/submit'
-
-function Name(){
+function Name({disabled}){
     return (
-        <div>
-            <label htmlFor='name'>Name</label>
-            <input id='name'/>
+        <div className='field'>
+            <label htmlFor='name' >Name</label>
+            <input id='name' disabled={disabled}/>
         </div>
     )
 }
 
-function Email(){
+function Email({disabled}){
     return (
-        <div>
+        <div className='field' >
             <label htmlFor='email'>Email</label>
-            <input id='email'/>
+            <input id='email' disabled={disabled}/>
         </div>
     )
 }
 
-function Phone(){
+function Phone({disabled}){
     return (
-        <div>
+        <div className='field'>
             <label htmlFor='phone'>Phone</label>
-            <input id='phone'/>
+            <input id='phone' disabled={disabled}/>
         </div>
     )
 }
 
-function GeneralForm(){
-    const [editing, setEditing] = useState(false)
-    return (
-        <>
-            <h1>General</h1>
-            <div>
-                <Name/>
-                <Email/>
-                <Phone/>
+function GeneralForm({name, editing, handleEdit, EditLayout}){
 
-                {editing && (
-                    <div>
-                        <EditButton />
-                        <SubmitButton />
-                    </div>
-                )}
-               
-                
-                
+
+    return (
+        <div className="form">
+            <h1 className="form-title" data-form={name}>General</h1>
+            <div className='extra'>
+                {editing != name && <EditButton name={name} handleEdit={handleEdit}/>}
+                {editing==name && <EditLayout />}
+
             </div>
-        </>
+            <div className='section'>
+                <Name disabled={name!=editing}/>
+                <Email disabled={name!=editing}/>
+                <Phone disabled={name!=editing}/>
+               
+            </div>
+        </div>
     )
    
 }

@@ -1,0 +1,50 @@
+#CV {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    padding: 20px;
+
+}
+
+.form {
+    width: 500px; 
+}
+
+.form-title{
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+input {
+    display: flex;
+    
+
+    margin-left: 20px;
+}
+
+.edit-layout {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+}
+
+.edit-btn {
+    
+}
+
+.extra {
+    display: flex;
+    justify-content: end;
+}

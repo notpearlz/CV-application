@@ -1,7 +1,8 @@
 function SubmitButton(){
+
     return (
         <>
-            <button>Submit</button>
+            <button type='submit'>Submit</button>
         </>
     )
 }

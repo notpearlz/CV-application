@@ -1,81 +1,91 @@
-import EditButton from './shared/submit'
-import SubmitButton from './shared/edit'
+import EditButton from "./shared/edit"
 
-function Company(){
+function Company({disabled}){
     return (
-       <div className='company'>
-            <CompanyName />
-            <CompanyPosition />
-            <CompanyTitle />
-            <CompanyResponsibilities />
-            <CompanyDate />
+       <div className='company section'>
+            <CompanyName disabled={disabled}/>
+            <CompanyPosition disabled={disabled}/>
+            <CompanyTitle disabled={disabled}/>
+            <CompanyResponsibilities disabled={disabled}/>
+            <CompanyDate disabled={disabled}/>
        </div>
     )
 }
 
 
-function CompanyName(){
+function CompanyName({disabled}){
     return (
         <>
-            <div>
+            <div className='field'>
                 <label htmlFor='companyName'>Company Name</label>
-                <input id='companyName' />
+                <input id='companyName' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyPosition(){
+function CompanyPosition({disabled}){
     return (
         <>
-            <div>
+            <div className='field'>
                 <label htmlFor='companyPosition'>Company Position</label>
-                <input id='companyPosition' />
+                <input id='companyPosition' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyTitle(){
+function CompanyTitle({disabled}){
     return (
         <>
-            <div>
+            <div className='field'>
                 <label htmlFor='companyTitle'>Company Title</label>
-                <input id='companyTitle' />
+                <input id='companyTitle' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyResponsibilities(){
+function CompanyResponsibilities({disabled}){
     return (
         <>
-            <div>
+            <div className='field'>
                 <label htmlFor='company-Responsibilties'>Company Responsiblities</label>
-                <input id='company-Responsibilties' />
+                <input id='company-Responsibilties' disabled={disabled}/>
             </div>
         </>
     )
 }
-function CompanyDate(){
+function CompanyDate({disabled}){
     return (
         <>
-            <div>
+            <div className='field'>
                 <label htmlFor='companyDate'>Company Date</label>
-                <input id='companyDate' />
+                <input id='companyDate' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function ExperienceForm(){
+function ExperienceForm({name, editing, handleEdit, EditLayout}){
     return (
-        <>
-            <h1>Experience</h1>
-            <div>
-                <Company />
+        <div className="form">
+            
+            <h1 className="form-title" data-form={name}>Experience</h1>
+            <div className='extra'>
+                {editing != name && <EditButton name={name} handleEdit={handleEdit}/>}
+                {editing==name && <EditLayout />}
+            </div>             
+             <div className="section">
+                <Company disabled={name!=editing}/>
+
+
+
             </div>
-        </>
+
+            
+               
+        </div>
     )
 }
 
