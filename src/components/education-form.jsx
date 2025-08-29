@@ -1,45 +1,46 @@
+import AddButton from "./shared/add"
 import EditButton from "./shared/edit"
 
-function School({disabled, editTemp}){
+function School({disabled, editTemp, id}){
     return (
         <div className='school section'>
-            <SchoolName editTemp={editTemp} disabled={disabled}/>
-            <SchoolAreaOfStudy editTemp={editTemp} disabled={disabled}/>
-            <SchoolDateOfStudy editTemp={editTemp} disabled={disabled}/>
+            <SchoolName id={id} editTemp={editTemp} disabled={disabled}/>
+            <SchoolAreaOfStudy id={id} editTemp={editTemp} disabled={disabled}/>
+            <SchoolDateOfStudy id={id} editTemp={editTemp} disabled={disabled}/>
         </div>
     )
 }
 
 
 
-function SchoolName({disabled, editTemp}){
+function SchoolName({disabled, editTemp, id}){
     return (
         <>
             <div className='field'>
-                <label htmlFor="schoolName">School Name</label>
-                <input onChange={editTemp} id='schoolName' disabled={disabled}/>
+                <label htmlFor={"schoolName" + id}>School Name</label>
+                <input onChange={editTemp} id={'schoolName'+ id}  disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function SchoolAreaOfStudy({disabled, editTemp}){
+function SchoolAreaOfStudy({disabled, editTemp, id}){
     return (
         <>
             <div className='field' >
-                <label htmlFor="schoolAreaOfStudy">Area Of Study</label>
-                <input onChange={editTemp} id='schoolAreaOfStudy' disabled={disabled}/>
+                <label htmlFor={"schoolAreaOfStudy" + id}>Area Of Study</label>
+                <input onChange={editTemp} id={'schoolAreaOfStudy' + id} disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function SchoolDateOfStudy({disabled, editTemp}){
+function SchoolDateOfStudy({disabled, editTemp, id}){
     return (
         <div className="form">
             <div className='field'>
-                <label htmlFor="schoolDateOfStudy">Date Of Study</label>
-                <input onChange={editTemp} id='schoolDateOfStudy' disabled={disabled}/>
+                <label htmlFor={"schoolDateOfStudy" + id}>Date Of Study</label>
+                <input onChange={editTemp} id={'schoolDateOfStudy' + id} disabled={disabled}/>
 
             </div>
                
@@ -50,7 +51,12 @@ function SchoolDateOfStudy({disabled, editTemp}){
 }
 
 
-function EducationForm({name, editing, handleEdit, EditLayout, editTemp}){
+function EducationForm({name, editing, handleEdit, EditLayout, editTemp, counts, setCounts}){
+
+    function addEducation(){
+        setCounts({...counts, education: counts.education + 1})
+    }
+
     return (
         <div className="form">
             <h1 className="form-title" data-form={name}>Education</h1>
@@ -60,10 +66,13 @@ function EducationForm({name, editing, handleEdit, EditLayout, editTemp}){
 
             </div>     
             <div className="section">
-                <School editTemp={editTemp} disabled={name != editing}/>
 
-
+                {Array(counts.education).fill(null).map((val, index) => (
+                    <School key={index} id={index} editTemp={editTemp} disabled={name != editing}/>
+                ))}
             </div>
+
+            <AddButton onClick={addEducation}/>
         </div>
     )
 }

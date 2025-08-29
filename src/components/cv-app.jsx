@@ -11,8 +11,11 @@ import EditProvider from "./edit-provider"
 import '../styles/cv-app.css';
 function CVApplication(){
     const [fields, setFields] = useState({});
-    const [tempfields, setTempFields] = useState({...fields})
+    const [tempfields, setTempFields] = useState({...fields});
+    const [counts, setCounts] = useState({education: 1, experience: 1});
+
     const {editing, handleEdit, EditLayout} = EditProvider();
+
 
     function editTemp(){
         const form = document.getElementById("CV")
@@ -62,17 +65,17 @@ function CVApplication(){
 
     return (
 
-        <>
+        <main className='CV-App'>
             <form id='CV' onSubmit={submitEdits}  onReset={resetEdits}>
                 <GeneralForm name="GeneralForm" editing={editing} handleEdit={handleEdit} EditLayout={EditLayout} editTemp={editTemp}/>
-                <EducationForm name="EducationForm" editing={editing} handleEdit={handleEdit} EditLayout={EditLayout} editTemp={editTemp}/>
-                <ExperienceForm name="ExperienceForm" editing={editing} handleEdit={handleEdit} EditLayout={EditLayout} editTemp={editTemp}/>
+                <EducationForm name="EducationForm" counts={counts} setCounts={setCounts} editing={editing} handleEdit={handleEdit} EditLayout={EditLayout} editTemp={editTemp}/>
+                <ExperienceForm name="ExperienceForm" counts={counts} setCounts={setCounts} editing={editing} handleEdit={handleEdit} EditLayout={EditLayout} editTemp={editTemp}/>
             </form>
 
             <div>
-                <CVViewer fields={tempfields}/>
+                <CVViewer fields={tempfields} counts={counts}/>
             </div>
-        </>
+        </main>
     )
 }
 

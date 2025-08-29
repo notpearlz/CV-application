@@ -1,73 +1,78 @@
+import AddButton from "./shared/add"
 import EditButton from "./shared/edit"
 
-function Company({disabled, editTemp}){
+function Company({disabled, editTemp, id}){
     return (
        <div className='company section'>
-            <CompanyName editTemp={editTemp} disabled={disabled}/>
-            <CompanyPosition editTemp={editTemp} disabled={disabled}/>
-            <CompanyTitle editTemp={editTemp} disabled={disabled}/>
-            <CompanyResponsibilities editTemp={editTemp} disabled={disabled}/>
-            <CompanyDate editTemp={editTemp} disabled={disabled}/>
+            <CompanyName id={id} editTemp={editTemp} disabled={disabled}/>
+            <CompanyPosition id={id} editTemp={editTemp} disabled={disabled}/>
+            <CompanyTitle id={id} editTemp={editTemp} disabled={disabled}/>
+            <CompanyResponsibilities id={id} editTemp={editTemp} disabled={disabled}/>
+            <CompanyDate id={id} editTemp={editTemp} disabled={disabled}/>
        </div>
     )
 }
 
 
-function CompanyName({disabled, editTemp}){
+function CompanyName({disabled, editTemp, id}){
     return (
         <>
             <div className='field'>
-                <label htmlFor='companyName'>Company Name</label>
-                <input onChange={editTemp} id='companyName' disabled={disabled}/>
+                <label htmlFor={'companyName'+id}>Company Name</label>
+                <input onChange={editTemp} id={'companyName' + id} disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyPosition({disabled, editTemp}){
+function CompanyPosition({disabled, editTemp, id}){
     return (
         <>
             <div className='field'>
-                <label htmlFor='companyPosition'>Company Position</label>
-                <input onChange={editTemp} id='companyPosition' disabled={disabled}/>
+                <label htmlFor={'companyPosition'+id}>Company Position</label>
+                <input onChange={editTemp} id={'companyPosition'+id} disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyTitle({disabled, editTemp}){
+function CompanyTitle({disabled, editTemp, id}){
     return (
         <>
             <div className='field'>
-                <label htmlFor='companyTitle'>Company Title</label>
-                <input onChange={editTemp} id='companyTitle' disabled={disabled}/>
+                <label htmlFor={'companyTitle'+id}>Company Title</label>
+                <input onChange={editTemp} id={'companyTitle'+id} disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyResponsibilities({disabled, editTemp}){
+function CompanyResponsibilities({disabled, editTemp, id}){
     return (
         <>
             <div className='field'>
-                <label htmlFor='companyResponsibilties'>Company Responsiblities</label>
-                <input onChange={editTemp} id='companyResponsibilties' disabled={disabled}/>
+                <label htmlFor={'companyResponsibilties'+id}>Company Responsiblities</label>
+                <input onChange={editTemp} id={'companyResponsibilties'+id} disabled={disabled}/>
             </div>
         </>
     )
 }
-function CompanyDate({disabled, editTemp}){
+function CompanyDate({disabled, editTemp, id}){
     return (
         <>
             <div className='field'>
-                <label htmlFor='companyDate'>Company Date</label>
-                <input onChange={editTemp} id='companyDate' disabled={disabled}/>
+                <label htmlFor={'companyDate'+id}>Company Date</label>
+                <input onChange={editTemp} id={'companyDate' + id} disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function ExperienceForm({name, editing, handleEdit, EditLayout, editTemp}){
+function ExperienceForm({name, editing, handleEdit, EditLayout, editTemp, counts, setCounts}){
+    function addExperience(){
+        setCounts({...counts, experience: counts.experience + 1})
+    }
+
     return (
         <div className="form">
             
@@ -77,14 +82,15 @@ function ExperienceForm({name, editing, handleEdit, EditLayout, editTemp}){
                 {editing==name && <EditLayout />}
             </div>             
              <div className="section">
-                <Company editTemp={editTemp} disabled={name!=editing}/>
 
-
+                {Array(counts.experience).fill(null).map((val, index) => (
+                    <Company key={index} id={index} editTemp={editTemp} disabled={name != editing}/>
+                ))}
 
             </div>
 
             
-               
+            <AddButton onClick={addExperience}/>
         </div>
     )
 }

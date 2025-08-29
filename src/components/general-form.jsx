@@ -38,7 +38,7 @@ function GeneralForm({name, editing, handleEdit, EditLayout, editTemp}){
                 {editing==name && <EditLayout />}
 
             </div>
-            <div className='section'>
+            <div className='general section'>
                 <Name editTemp={editTemp} disabled={name!=editing}/>
                 <Email editTemp={editTemp} disabled={name!=editing}/>
                 <Phone editTemp={editTemp} disabled={name!=editing}/>
