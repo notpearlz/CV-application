@@ -2,7 +2,7 @@ import { useState } from "react"
 
 
 import CancelButton from "./shared/cancel";
-import SubmitButton from "./shared/submit"
+import SaveButton from "./shared/save"
 
 function EditProvider(){
     const [editing, setEditing] = useState(null)
@@ -29,7 +29,7 @@ function EditProvider(){
             <>
                 <div className="edit-layout">
                     <CancelButton />
-                    <SubmitButton />
+                    <SaveButton />
                 </div>
                
             </>

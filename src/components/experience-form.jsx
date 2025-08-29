@@ -1,73 +1,73 @@
 import EditButton from "./shared/edit"
 
-function Company({disabled}){
+function Company({disabled, editTemp}){
     return (
        <div className='company section'>
-            <CompanyName disabled={disabled}/>
-            <CompanyPosition disabled={disabled}/>
-            <CompanyTitle disabled={disabled}/>
-            <CompanyResponsibilities disabled={disabled}/>
-            <CompanyDate disabled={disabled}/>
+            <CompanyName editTemp={editTemp} disabled={disabled}/>
+            <CompanyPosition editTemp={editTemp} disabled={disabled}/>
+            <CompanyTitle editTemp={editTemp} disabled={disabled}/>
+            <CompanyResponsibilities editTemp={editTemp} disabled={disabled}/>
+            <CompanyDate editTemp={editTemp} disabled={disabled}/>
        </div>
     )
 }
 
 
-function CompanyName({disabled}){
+function CompanyName({disabled, editTemp}){
     return (
         <>
             <div className='field'>
                 <label htmlFor='companyName'>Company Name</label>
-                <input id='companyName' disabled={disabled}/>
+                <input onChange={editTemp} id='companyName' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyPosition({disabled}){
+function CompanyPosition({disabled, editTemp}){
     return (
         <>
             <div className='field'>
                 <label htmlFor='companyPosition'>Company Position</label>
-                <input id='companyPosition' disabled={disabled}/>
+                <input onChange={editTemp} id='companyPosition' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyTitle({disabled}){
+function CompanyTitle({disabled, editTemp}){
     return (
         <>
             <div className='field'>
                 <label htmlFor='companyTitle'>Company Title</label>
-                <input id='companyTitle' disabled={disabled}/>
+                <input onChange={editTemp} id='companyTitle' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function CompanyResponsibilities({disabled}){
+function CompanyResponsibilities({disabled, editTemp}){
     return (
         <>
             <div className='field'>
-                <label htmlFor='company-Responsibilties'>Company Responsiblities</label>
-                <input id='company-Responsibilties' disabled={disabled}/>
+                <label htmlFor='companyResponsibilties'>Company Responsiblities</label>
+                <input onChange={editTemp} id='companyResponsibilties' disabled={disabled}/>
             </div>
         </>
     )
 }
-function CompanyDate({disabled}){
+function CompanyDate({disabled, editTemp}){
     return (
         <>
             <div className='field'>
                 <label htmlFor='companyDate'>Company Date</label>
-                <input id='companyDate' disabled={disabled}/>
+                <input onChange={editTemp} id='companyDate' disabled={disabled}/>
             </div>
         </>
     )
 }
 
-function ExperienceForm({name, editing, handleEdit, EditLayout}){
+function ExperienceForm({name, editing, handleEdit, EditLayout, editTemp}){
     return (
         <div className="form">
             
@@ -77,7 +77,7 @@ function ExperienceForm({name, editing, handleEdit, EditLayout}){
                 {editing==name && <EditLayout />}
             </div>             
              <div className="section">
-                <Company disabled={name!=editing}/>
+                <Company editTemp={editTemp} disabled={name!=editing}/>
 
 
 

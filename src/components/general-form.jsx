@@ -1,33 +1,33 @@
 import EditButton from "./shared/edit"
 
-function Name({disabled}){
+function Name({disabled, editTemp}){
     return (
         <div className='field'>
             <label htmlFor='name' >Name</label>
-            <input id='name' disabled={disabled}/>
+            <input onChange={editTemp} id='name' disabled={disabled}/>
         </div>
     )
 }
 
-function Email({disabled}){
+function Email({disabled, editTemp}){
     return (
         <div className='field' >
             <label htmlFor='email'>Email</label>
-            <input id='email' disabled={disabled}/>
+            <input onChange={editTemp} id='email' disabled={disabled}/>
         </div>
     )
 }
 
-function Phone({disabled}){
+function Phone({disabled, editTemp}){
     return (
         <div className='field'>
             <label htmlFor='phone'>Phone</label>
-            <input id='phone' disabled={disabled}/>
+            <input onChange={editTemp} id='phone' disabled={disabled}/>
         </div>
     )
 }
 
-function GeneralForm({name, editing, handleEdit, EditLayout}){
+function GeneralForm({name, editing, handleEdit, EditLayout, editTemp}){
 
 
     return (
@@ -39,9 +39,9 @@ function GeneralForm({name, editing, handleEdit, EditLayout}){
 
             </div>
             <div className='section'>
-                <Name disabled={name!=editing}/>
-                <Email disabled={name!=editing}/>
-                <Phone disabled={name!=editing}/>
+                <Name editTemp={editTemp} disabled={name!=editing}/>
+                <Email editTemp={editTemp} disabled={name!=editing}/>
+                <Phone editTemp={editTemp} disabled={name!=editing}/>
                
             </div>
         </div>
