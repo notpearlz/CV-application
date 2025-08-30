@@ -1,6 +1,6 @@
 .CV-App{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 500px 800px;
 }
 #CV {    
     display: flex;

@@ -1,3 +1,71 @@
-.CV-Viewer{
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+h2 {
+    margin: 20px 0px;
+}
+
+h3 {
+    margin: 10px 0px;
+}
+hr {
+    margin-bottom: 10px;
+}
+
+li {
+    margin-left: 10px;
+}
+
+.keyField {
+    margin-left:  0;
+    margin-right: 10px;
+    list-style: none;
+}
+.cv-viewer{
+    padding: 10px;
     border: 1px solid black;
+}
+
+.general-viewer{
+    display: flex;
+    flex-direction: column;
+}
+
+.general-viewer div {
+    display: flex;
+    gap:20px;
+}
+.companyintro {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.comapnyname {
+    display: flex;
+    list-style: none;
+    margin-bottom: 10px;
+}
+.companyResponsibility {
+    margin-left: 20px;
+}
+.school-viewer {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    margin: 5px 0px;
+
+    /* border: 1px solid black; */
+}
+
+.experience-viewer {
+    padding: 10px;
+    padding-left: 10px;
+
+    
+    /* border: 1px solid black; */
 }

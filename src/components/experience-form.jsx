@@ -52,7 +52,7 @@ function CompanyResponsibilities({disabled, editTemp, id}){
         <>
             <div className='field'>
                 <label htmlFor={'companyResponsibilties'+id}>Company Responsiblities</label>
-                <input onChange={editTemp} id={'companyResponsibilties'+id} disabled={disabled}/>
+                <textarea onChange={editTemp} id={'companyResponsibilties'+id} disabled={disabled} />
             </div>
         </>
     )

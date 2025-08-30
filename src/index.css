@@ -3,13 +3,7 @@
   margin: 0;
 }
 
-html,
-body,
-#root,
-.w-full{
-  display: flex;
-  flex: 1;
-}
+
 .flex {
   display: flex;
 }
