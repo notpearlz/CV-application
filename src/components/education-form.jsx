@@ -1,5 +1,6 @@
 import AddButton from "./shared/add"
 import EditButton from "./shared/edit"
+import RemoveButton from "./shared/remove"
 
 function School({disabled, editTemp, id}){
     return (
@@ -57,6 +58,11 @@ function EducationForm({name, editing, handleEdit, EditLayout, editTemp, counts,
         setCounts({...counts, education: counts.education + 1})
     }
 
+    function removeEducation(){
+        if(counts.education === 0) return;
+
+        setCounts({...counts, education: counts.education - 1})
+    }
     return (
         <div className="form">
             <h1 className="form-title" data-form={name}>Education</h1>
@@ -73,6 +79,7 @@ function EducationForm({name, editing, handleEdit, EditLayout, editTemp, counts,
             </div>
 
             <AddButton onClick={addEducation}/>
+            <RemoveButton onClick={removeEducation}/>
         </div>
     )
 }

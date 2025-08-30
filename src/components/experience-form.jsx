@@ -1,5 +1,6 @@
 import AddButton from "./shared/add"
 import EditButton from "./shared/edit"
+import RemoveButton from "./shared/remove"
 
 function Company({disabled, editTemp, id}){
     return (
@@ -73,6 +74,10 @@ function ExperienceForm({name, editing, handleEdit, EditLayout, editTemp, counts
         setCounts({...counts, experience: counts.experience + 1})
     }
 
+    function removeExperience(){
+        if(counts.experience === 0) return;
+        setCounts({...counts, experience: counts.experience - 1})
+    }
     return (
         <div className="form">
             
@@ -91,6 +96,7 @@ function ExperienceForm({name, editing, handleEdit, EditLayout, editTemp, counts
 
             
             <AddButton onClick={addExperience}/>
+            <RemoveButton onClick={removeExperience}/>
         </div>
     )
 }

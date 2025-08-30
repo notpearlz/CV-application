@@ -41,14 +41,14 @@ function CVViewer(props){
 
                 <h3>Education</h3>
                 <hr/>
-
+                { counts.education > 0 &&
                 <ul className='school-viewer'>
                     <li><b>Education</b></li>
                     <li><b>Area of Study</b></li>
                     <li><b>Graduation Month, Year</b></li>
 
                 </ul>
-
+                }
                 {Array(counts.education).fill(null).map((val, index) => (
                     <ul className='school-viewer'key={index}>
                         <li key={"fields.schoolName"+index}> {fields['schoolName' + index] ? fields['schoolName' + index]  : "School Name"}</li>
@@ -61,7 +61,7 @@ function CVViewer(props){
                 <hr/>
 
 
-
+                { counts.experience > 0 &&
                 <ul className='experience-viewer companyintro'>
                     <div className='companyintro'>
                         <li className='keyField'><b>Company Name</b></li>
@@ -72,6 +72,7 @@ function CVViewer(props){
                     <li><b>Date</b></li>
 
                 </ul>
+                }
                 {Array(counts.experience).fill(null).map((val, index) => (
                     <ul  className='experience-viewer' key={index}>
                         <div className='companyintro'>
